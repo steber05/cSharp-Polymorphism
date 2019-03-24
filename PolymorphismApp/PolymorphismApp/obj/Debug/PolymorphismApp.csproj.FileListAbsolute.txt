@@ -1,0 +1,10 @@
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\obj\Debug\PolymorphismApp.csprojAssemblyReference.cache
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\obj\Debug\PolymorphismApp.Properties.Resources.resources
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\obj\Debug\PolymorphismApp.csproj.GenerateResource.cache
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\obj\Debug\PolymorphismApp.csproj.CoreCompileInputs.cache
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\bin\Debug\PolymorphismApp.exe.config
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\bin\Debug\PolymorphismApp.exe
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\bin\Debug\PolymorphismApp.pdb
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\obj\Debug\PolymorphismApp.Form1.resources
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\obj\Debug\PolymorphismApp.exe
+D:\code\local\cSharp\source\repos\PolymorphismApp\PolymorphismApp\obj\Debug\PolymorphismApp.pdb
