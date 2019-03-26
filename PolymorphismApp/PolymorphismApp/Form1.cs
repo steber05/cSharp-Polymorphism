@@ -21,6 +21,7 @@ namespace PolymorphismApp
 
         //Variables
         OpenFileDialog fileGet = new OpenFileDialog();
+        LiveStock[] stock = new LiveStock[10];
 
         private void fileButton_Click(object sender, EventArgs e)
         {
@@ -30,10 +31,50 @@ namespace PolymorphismApp
             fileBox.Text = fileGet.FileName;
         }//end of choosing file
 
+        private void priceButton_Click(object sender, EventArgs e)
+        {
+            SetupUtilities();
+        }
+
+        private void objectButton_Click(object sender, EventArgs e)
+        {
+            CreateObjects();
+        }
+
         private void runQuery_Click(object sender, EventArgs e)
         {
-            //reset label
-            profitLabel.Text = "0";
+            CalculateProfit();
+        }
+
+        private void setupValuesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetupUtilities();
+        }
+
+        private void createObjectsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateObjects();
+        }
+
+        private void calculateProfitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CalculateProfit();
+        }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetupUtilities();
+            CreateObjects();
+            CalculateProfit();
+        }//end of run query from menu
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void SetupUtilities()
+        {
             //initialize Utilities
             try
             {
@@ -47,16 +88,17 @@ namespace PolymorphismApp
             {
                 MessageBox.Show("Enter valid values");
             }
+        }
 
+        private void CreateObjects()
+        {
             //read file into array 
             string file = fileBox.Text;
             //create an array with object creation parameters
             try
             {
                 string[] lines = System.IO.File.ReadAllLines(file);
-                //create blank array of objects
-                LiveStock[] stock = new LiveStock[lines.Length];
-                for (int i = 0; i < lines.Length; i++)
+                for (int i = 0; i < stock.Length; i++)
                 {
                     string[] obj = lines[i].Split(',');
                     try
@@ -76,8 +118,6 @@ namespace PolymorphismApp
                             default:
                                 break;
                         }
-                        //for each object created run the allocated claculateProfit method
-                        stock[i].calculateProfit();
                     }
                     catch (Exception)
                     {
@@ -90,22 +130,31 @@ namespace PolymorphismApp
             {
                 MessageBox.Show(ex.Message);
             }
-            //display profit
-            profitLabel.Text = Convert.ToString(Utilities.profit);
+        }
 
+        private void CalculateProfit()
+        {
             //reset profit for re-run
             Utilities.profit = 0;
+            //reset label
+            profitLabel.Text = "0";
+            //create a loop to run each method related to each object(overriden methods)
+            try
+            {
+                for (int i = 0; i < stock.Length; i++)
+                {
+                    stock[i].calculateProfit();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            //display profit
+            profitLabel.Text = Convert.ToString(Utilities.profit);
         }
 
-        private void runToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            runQuery.PerformClick();
-        }//end of run query from menu
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
     }
 }
 //need to add good error checking

@@ -39,6 +39,9 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.queryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupValuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createObjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculateProfitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,20 +52,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.profitLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.runQuery = new System.Windows.Forms.Button();
+            this.profitButton = new System.Windows.Forms.Button();
+            this.priceButton = new System.Windows.Forms.Button();
+            this.objectButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileBox
             // 
-            this.fileBox.Location = new System.Drawing.Point(12, 40);
+            this.fileBox.Location = new System.Drawing.Point(12, 42);
             this.fileBox.Name = "fileBox";
-            this.fileBox.Size = new System.Drawing.Size(196, 20);
+            this.fileBox.Size = new System.Drawing.Size(141, 20);
             this.fileBox.TabIndex = 0;
             // 
             // cowVaccBox
             // 
-            this.cowVaccBox.Location = new System.Drawing.Point(159, 152);
+            this.cowVaccBox.Location = new System.Drawing.Point(159, 146);
             this.cowVaccBox.Name = "cowVaccBox";
             this.cowVaccBox.Size = new System.Drawing.Size(100, 20);
             this.cowVaccBox.TabIndex = 3;
@@ -70,7 +75,7 @@
             // 
             // jCowVaccBox
             // 
-            this.jCowVaccBox.Location = new System.Drawing.Point(159, 178);
+            this.jCowVaccBox.Location = new System.Drawing.Point(159, 172);
             this.jCowVaccBox.Name = "jCowVaccBox";
             this.jCowVaccBox.Size = new System.Drawing.Size(100, 20);
             this.jCowVaccBox.TabIndex = 4;
@@ -78,7 +83,7 @@
             // 
             // goatMilkPriceBox
             // 
-            this.goatMilkPriceBox.Location = new System.Drawing.Point(159, 126);
+            this.goatMilkPriceBox.Location = new System.Drawing.Point(159, 120);
             this.goatMilkPriceBox.Name = "goatMilkPriceBox";
             this.goatMilkPriceBox.Size = new System.Drawing.Size(100, 20);
             this.goatMilkPriceBox.TabIndex = 2;
@@ -86,7 +91,7 @@
             // 
             // cowMilkPriceBox
             // 
-            this.cowMilkPriceBox.Location = new System.Drawing.Point(159, 100);
+            this.cowMilkPriceBox.Location = new System.Drawing.Point(159, 94);
             this.cowMilkPriceBox.Name = "cowMilkPriceBox";
             this.cowMilkPriceBox.Size = new System.Drawing.Size(100, 20);
             this.cowMilkPriceBox.TabIndex = 1;
@@ -133,30 +138,54 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // queryToolStripMenuItem
             // 
             this.queryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setupValuesToolStripMenuItem,
+            this.createObjectsToolStripMenuItem,
+            this.calculateProfitToolStripMenuItem,
             this.runToolStripMenuItem});
             this.queryToolStripMenuItem.Name = "queryToolStripMenuItem";
             this.queryToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.queryToolStripMenuItem.Text = "Query";
             // 
+            // setupValuesToolStripMenuItem
+            // 
+            this.setupValuesToolStripMenuItem.Name = "setupValuesToolStripMenuItem";
+            this.setupValuesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.setupValuesToolStripMenuItem.Text = "Setup values";
+            this.setupValuesToolStripMenuItem.Click += new System.EventHandler(this.setupValuesToolStripMenuItem_Click);
+            // 
+            // createObjectsToolStripMenuItem
+            // 
+            this.createObjectsToolStripMenuItem.Name = "createObjectsToolStripMenuItem";
+            this.createObjectsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.createObjectsToolStripMenuItem.Text = "Create objects";
+            this.createObjectsToolStripMenuItem.Click += new System.EventHandler(this.createObjectsToolStripMenuItem_Click);
+            // 
+            // calculateProfitToolStripMenuItem
+            // 
+            this.calculateProfitToolStripMenuItem.Name = "calculateProfitToolStripMenuItem";
+            this.calculateProfitToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.calculateProfitToolStripMenuItem.Text = "Calculate profit";
+            this.calculateProfitToolStripMenuItem.Click += new System.EventHandler(this.calculateProfitToolStripMenuItem_Click);
+            // 
             // runToolStripMenuItem
             // 
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.runToolStripMenuItem.Text = "Run";
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.runToolStripMenuItem.Text = "Run full query";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 107);
+            this.label2.Location = new System.Drawing.Point(9, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 8;
@@ -165,7 +194,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 133);
+            this.label3.Location = new System.Drawing.Point(9, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 9;
@@ -173,7 +202,7 @@
             // 
             // goatVaccBox
             // 
-            this.goatVaccBox.Location = new System.Drawing.Point(159, 204);
+            this.goatVaccBox.Location = new System.Drawing.Point(159, 198);
             this.goatVaccBox.Name = "goatVaccBox";
             this.goatVaccBox.Size = new System.Drawing.Size(100, 20);
             this.goatVaccBox.TabIndex = 5;
@@ -182,7 +211,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 159);
+            this.label4.Location = new System.Drawing.Point(9, 153);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 13);
             this.label4.TabIndex = 11;
@@ -191,7 +220,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 185);
+            this.label5.Location = new System.Drawing.Point(9, 179);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 13);
             this.label5.TabIndex = 12;
@@ -200,7 +229,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 211);
+            this.label6.Location = new System.Drawing.Point(9, 205);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 13);
             this.label6.TabIndex = 13;
@@ -209,7 +238,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 271);
+            this.label7.Location = new System.Drawing.Point(12, 280);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 13);
             this.label7.TabIndex = 14;
@@ -218,7 +247,7 @@
             // profitLabel
             // 
             this.profitLabel.AutoSize = true;
-            this.profitLabel.Location = new System.Drawing.Point(175, 271);
+            this.profitLabel.Location = new System.Drawing.Point(175, 280);
             this.profitLabel.Name = "profitLabel";
             this.profitLabel.Size = new System.Drawing.Size(13, 13);
             this.profitLabel.TabIndex = 15;
@@ -227,28 +256,50 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(156, 271);
+            this.label9.Location = new System.Drawing.Point(156, 280);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(13, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "$";
             // 
-            // runQuery
+            // profitButton
             // 
-            this.runQuery.Location = new System.Drawing.Point(159, 230);
-            this.runQuery.Name = "runQuery";
-            this.runQuery.Size = new System.Drawing.Size(100, 23);
-            this.runQuery.TabIndex = 17;
-            this.runQuery.Text = "Run query";
-            this.runQuery.UseVisualStyleBackColor = true;
-            this.runQuery.Click += new System.EventHandler(this.runQuery_Click);
+            this.profitButton.Location = new System.Drawing.Point(159, 254);
+            this.profitButton.Name = "profitButton";
+            this.profitButton.Size = new System.Drawing.Size(100, 23);
+            this.profitButton.TabIndex = 17;
+            this.profitButton.Text = "Calculate profit";
+            this.profitButton.UseVisualStyleBackColor = true;
+            this.profitButton.Click += new System.EventHandler(this.runQuery_Click);
+            // 
+            // priceButton
+            // 
+            this.priceButton.Location = new System.Drawing.Point(159, 225);
+            this.priceButton.Name = "priceButton";
+            this.priceButton.Size = new System.Drawing.Size(100, 23);
+            this.priceButton.TabIndex = 18;
+            this.priceButton.Text = "Setup prices";
+            this.priceButton.UseVisualStyleBackColor = true;
+            this.priceButton.Click += new System.EventHandler(this.priceButton_Click);
+            // 
+            // objectButton
+            // 
+            this.objectButton.Location = new System.Drawing.Point(159, 42);
+            this.objectButton.Name = "objectButton";
+            this.objectButton.Size = new System.Drawing.Size(100, 20);
+            this.objectButton.TabIndex = 19;
+            this.objectButton.Text = "Create objects";
+            this.objectButton.UseVisualStyleBackColor = true;
+            this.objectButton.Click += new System.EventHandler(this.objectButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 295);
-            this.Controls.Add(this.runQuery);
+            this.ClientSize = new System.Drawing.Size(276, 299);
+            this.Controls.Add(this.objectButton);
+            this.Controls.Add(this.priceButton);
+            this.Controls.Add(this.profitButton);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.profitLabel);
             this.Controls.Add(this.label7);
@@ -298,8 +349,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox cowMilkPriceBox;
-        private System.Windows.Forms.Button runQuery;
+        private System.Windows.Forms.Button profitButton;
         public System.Windows.Forms.Label profitLabel;
+        private System.Windows.Forms.ToolStripMenuItem calculateProfitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setupValuesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createObjectsToolStripMenuItem;
+        private System.Windows.Forms.Button priceButton;
+        private System.Windows.Forms.Button objectButton;
     }
 }
 
