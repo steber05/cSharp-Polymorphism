@@ -12,12 +12,15 @@ namespace PolymorphismApp
 {
     public partial class Form1 : Form
     {
-        OpenFileDialog fileGet = new OpenFileDialog();
-        LiveStock[] stock;
+        
+        
         public Form1()
         {
             InitializeComponent();
         }
+
+        //Variables
+        OpenFileDialog fileGet = new OpenFileDialog();
 
         private void fileButton_Click(object sender, EventArgs e)
         {
@@ -29,52 +32,80 @@ namespace PolymorphismApp
 
         private void runQuery_Click(object sender, EventArgs e)
         {
+            //reset label
+            profitLabel.Text = "0";
             //initialize Utilities
-            Utilities.cowMilkPrice = double.Parse(cowMilkPriceBox.Text);
-            Utilities.goatMilkPrice = double.Parse(goatMilkPriceBox.Text);
-            Utilities.cowVacc = double.Parse(cowVaccBox.Text);
-            Utilities.jCowVacc = double.Parse(jCowVaccBox.Text);
-            Utilities.goatVacc = double.Parse(goatVaccBox.Text);
+            try
+            {
+                Utilities.cowMilkPrice = double.Parse(cowMilkPriceBox.Text);
+                Utilities.goatMilkPrice = double.Parse(goatMilkPriceBox.Text);
+                Utilities.cowVacc = double.Parse(cowVaccBox.Text);
+                Utilities.jCowVacc = double.Parse(jCowVaccBox.Text);
+                Utilities.goatVacc = double.Parse(goatVaccBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Enter valid values");
+            }
 
             //read file into array 
             string file = fileBox.Text;
-            string[] lines = System.IO.File.ReadAllLines(file);
-            //loop to create an array of 3 elements that hold id, milk, type
-            for (int i = 0; i < lines.Length; i++)
+            //create an array with object creation parameters
+            try
             {
-                string[] obj = lines[i].Split(',');
-                try
+                string[] lines = System.IO.File.ReadAllLines(file);
+                //create blank array of objects
+                LiveStock[] stock = new LiveStock[lines.Length];
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    switch (obj[2])
+                    string[] obj = lines[i].Split(',');
+                    try
                     {
-                        //based on type create a new object
-                        case "cow":
-                            stock[i] = new Cow(Int32.Parse(obj[0]), Double.Parse(obj[1]), obj[2]);
-                            break;
-                        case "jersey_cow":
-                            stock[i] = new JerseyCow(Int32.Parse(obj[0]), Double.Parse(obj[1]), obj[2]);
-                            break;
-                        case "goat":
-                            stock[i] = new JerseyCow(Int32.Parse(obj[0]), Double.Parse(obj[1]), obj[2]);
-                            break;
-                        default:
-                            break;
+                        switch (obj[2])
+                        {
+                            //based on type create a new object
+                            case "cow":
+                                stock[i] = new Cow(Int32.Parse(obj[0]), Double.Parse(obj[1]), obj[2]);
+                                break;
+                            case "jersey_cow":
+                                stock[i] = new JerseyCow(Int32.Parse(obj[0]), Double.Parse(obj[1]), obj[2]);
+                                break;
+                            case "goat":
+                                stock[i] = new JerseyCow(Int32.Parse(obj[0]), Double.Parse(obj[1]), obj[2]);
+                                break;
+                            default:
+                                break;
+                        }
+                        //for each object created run the allocated claculateProfit method
+                        stock[i].calculateProfit();
                     }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Invalid object reference in text file");
+                    }
+
                 }
-                catch (Exception)
-                {
-                    
-                }
-                //for each object created run the allocated claculateProfit method
-                stock[i].calculateProfit();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            //display profit
             profitLabel.Text = Convert.ToString(Utilities.profit);
-        }//end of full query
+
+            //reset profit for re-run
+            Utilities.profit = 0;
+        }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
         {
             runQuery.PerformClick();
         }//end of run query from menu
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 //need to add good error checking

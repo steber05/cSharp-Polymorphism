@@ -65,28 +65,32 @@
             this.cowVaccBox.Location = new System.Drawing.Point(159, 152);
             this.cowVaccBox.Name = "cowVaccBox";
             this.cowVaccBox.Size = new System.Drawing.Size(100, 20);
-            this.cowVaccBox.TabIndex = 1;
+            this.cowVaccBox.TabIndex = 3;
+            this.cowVaccBox.Text = "0";
             // 
             // jCowVaccBox
             // 
             this.jCowVaccBox.Location = new System.Drawing.Point(159, 178);
             this.jCowVaccBox.Name = "jCowVaccBox";
             this.jCowVaccBox.Size = new System.Drawing.Size(100, 20);
-            this.jCowVaccBox.TabIndex = 2;
+            this.jCowVaccBox.TabIndex = 4;
+            this.jCowVaccBox.Text = "0";
             // 
             // goatMilkPriceBox
             // 
             this.goatMilkPriceBox.Location = new System.Drawing.Point(159, 126);
             this.goatMilkPriceBox.Name = "goatMilkPriceBox";
             this.goatMilkPriceBox.Size = new System.Drawing.Size(100, 20);
-            this.goatMilkPriceBox.TabIndex = 3;
+            this.goatMilkPriceBox.TabIndex = 2;
+            this.goatMilkPriceBox.Text = "0";
             // 
             // cowMilkPriceBox
             // 
             this.cowMilkPriceBox.Location = new System.Drawing.Point(159, 100);
             this.cowMilkPriceBox.Name = "cowMilkPriceBox";
             this.cowMilkPriceBox.Size = new System.Drawing.Size(100, 20);
-            this.cowMilkPriceBox.TabIndex = 4;
+            this.cowMilkPriceBox.TabIndex = 1;
+            this.cowMilkPriceBox.Text = "0";
             // 
             // fileButton
             // 
@@ -129,8 +133,9 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // queryToolStripMenuItem
             // 
@@ -144,7 +149,7 @@
             // 
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.runToolStripMenuItem.Text = "Run";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
@@ -171,7 +176,8 @@
             this.goatVaccBox.Location = new System.Drawing.Point(159, 204);
             this.goatVaccBox.Name = "goatVaccBox";
             this.goatVaccBox.Size = new System.Drawing.Size(100, 20);
-            this.goatVaccBox.TabIndex = 10;
+            this.goatVaccBox.TabIndex = 5;
+            this.goatVaccBox.Text = "0";
             // 
             // label4
             // 
@@ -262,7 +268,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Polymorphism application";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

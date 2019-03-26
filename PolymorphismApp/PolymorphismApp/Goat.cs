@@ -19,8 +19,7 @@ namespace PolymorphismApp
 
         public override void calculateProfit()
         {
-            Utilities.profit += (milk * Utilities.goatMilkPrice) - Utilities.goatVacc;
-            base.calculateProfit();
+            Utilities.profit += (milk * Utilities.goatMilkPrice) - (Utilities.goatVacc / 365);
         }//end of overviden calculateProfit
     }
 }
